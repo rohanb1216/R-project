@@ -22,6 +22,10 @@ nba_sub = subset(nba_sub,Player!=0)
 We want to see whether there's been an increase in 3pt attempts after a certain year, or player entering the league
 We do this by using thr 3Par stat.
 ```{r}
+three_pt_stats <- nba[complete.cases(nba), ]
+```
+
+```{r}
 y1978 = subset(nba,Year==1978)
 y1979 = subset(nba,Year==1979)
 y1980 = subset(nba,Year==1980)
