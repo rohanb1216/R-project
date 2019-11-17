@@ -70,3 +70,7 @@ y2016 = subset(y2016,Player!=0)
 three_point_average=c(mean(y1978$X3PAr),mean(y1979$X3PAr),mean(y1980$X3PAr),mean(y1981$X3PAr),mean(y1982$X3PAr),mean(y1983$X3PAr),mean(y1984$X3PA),mean(y1985$X3PAr),mean(y1986$X3PAr),mean(y1987$X3PAr),mean(y1988$X3PAr),mean(y1989$X3PAr),mean(y1990$X3PAr),mean(y1991$X3PAr),mean(y1992$X3PAr),mean(y1993$X3PAr),mean(y1994$X3PAr),mean(y1995$X3PAr),mean(y1996$X3PAr),mean(y1997$X3PAr),mean(y1998$X3PAr),mean(y1999$X3PAr),mean(y2000$X3PAr),mean(y2001$X3PAr),mean(y2002$X3PAr),mean(y2003$X3PAr),mean(y2004$X3PAr),mean(y2005$X3PAr),mean(y2006$X3PAr),mean(y2007$X3PAr),mean(y2008$X3PAr),mean(y2009$X3PAr),mean(y2010$X3PAr),mean(y2011$X3PAr),mean(y2012$X3PAr),mean(y2013$X3PAr),mean(y2014$X3PAr),mean(y2015$X3PAr),mean(y2016$X3PAr))
 ```
 
+```{r}
+plot(c(1978:2016),three_point_average)
+```
+
