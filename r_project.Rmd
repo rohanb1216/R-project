@@ -18,12 +18,10 @@ nba = read.csv("../R-project/NBASeasonData.csv")
 As the dataset spans almost 30 years, the methods of collecting data aren't consistent. Therefore, we are using data from 2013 onwards.
 
 ```{r}
-nba = subset(nba, Player!=0)
 nba_sub = subset(nba,Year>=2013)
 ```
 To get rid of null values and records with insufficient data
 ```{r}
-nba_sub = subset(nba_sub, Player!=0)
 
 ```
 
