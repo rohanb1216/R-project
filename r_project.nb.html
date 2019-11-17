@@ -1756,32 +1756,32 @@ summary {
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubmJhID0gcmVhZC5jc3YoXFwuLi9SLXByb2plY3QvTkJBU2Vhc29uRGF0YS5jc3ZcXClcbmBgYFxuYGBgIn0= -->
-<p><code>r</code>r nba = read.csv(../R-project/NBASeasonData.csv)</p>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhID0gcmVhZC5jc3YoXCIuLi9SLXByb2plY3QvTkJBU2Vhc29uRGF0YS5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>nba = read.csv(&quot;../R-project/NBASeasonData.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>As the dataset spans almost 30 years, the methods of collecting data aren’t consistent. Therefore, we are using data from 2013 onwards.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubmJhX3N1YiA9IHN1YnNldChuYmEsWWVhcj49MjAxMylcbmBgYFxuYGBgIn0= -->
-<p><code>r</code>r nba_sub = subset(nba,Year&gt;=2013)</p>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhID0gc3Vic2V0KG5iYSwgUGxheWVyIT0wKVxubmJhX3N1YiA9IHN1YnNldChuYmEsWWVhcj49MjAxMylcbmBgYCJ9 -->
+<pre class="r"><code>nba = subset(nba, Player!=0)
+nba_sub = subset(nba,Year&gt;=2013)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>To get rid of null values and records with insufficient data</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhX3N1YiA9IHN1YnNldChuYmFfc3ViLCBQbGF5ZXIhPTApXG5gYGAifQ== -->
-<pre class="r"><code>nba_sub = subset(nba_sub, Player!=0)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhX3N1YiA9IHN1YnNldChuYmFfc3ViLCBQbGF5ZXIhPTApXG5cbmBgYCJ9 -->
+<pre class="r"><code>nba_sub = subset(nba_sub, Player!=0)
+</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4NCg0KV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDdHJsK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuDQoNClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4NCmBgYHtyfQ0KbmJhID0gcmVhZC5jc3YoIi4uL1ItcHJvamVjdC9OQkFTZWFzb25EYXRhLmNzdiIpDQpgYGANCg0KQXMgdGhlIGRhdGFzZXQgc3BhbnMgYWxtb3N0IDMwIHllYXJzLCB0aGUgbWV0aG9kcyBvZiBjb2xsZWN0aW5nIGRhdGEgYXJlbid0IGNvbnNpc3RlbnQuIFRoZXJlZm9yZSwgd2UgYXJlIHVzaW5nIGRhdGEgZnJvbSAyMDEzIG9ud2FyZHMuDQoNCmBgYHtyfQ0KbmJhX3N1YiA9IHN1YnNldChuYmEsWWVhcj49MjAxMykNCmBgYA0KVG8gZ2V0IHJpZCBvZiBudWxsIHZhbHVlcyBhbmQgcmVjb3JkcyB3aXRoIGluc3VmZmljaWVudCBkYXRhDQpgYGB7cn0NCm5iYV9zdWIgPSBzdWJzZXQobmJhX3N1YiwgUGxheWVyIT0wKQ0KDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4NCg0KV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDdHJsK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuDQoNClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4NCmBgYHtyfQ0KbmJhID0gcmVhZC5jc3YoIi4uL1ItcHJvamVjdC9OQkFTZWFzb25EYXRhLmNzdiIpDQpgYGANCg0KQXMgdGhlIGRhdGFzZXQgc3BhbnMgYWxtb3N0IDMwIHllYXJzLCB0aGUgbWV0aG9kcyBvZiBjb2xsZWN0aW5nIGRhdGEgYXJlbid0IGNvbnNpc3RlbnQuIFRoZXJlZm9yZSwgd2UgYXJlIHVzaW5nIGRhdGEgZnJvbSAyMDEzIG9ud2FyZHMuDQoNCmBgYHtyfQ0KbmJhID0gc3Vic2V0KG5iYSwgUGxheWVyIT0wKQ0KbmJhX3N1YiA9IHN1YnNldChuYmEsWWVhcj49MjAxMykNCmBgYA0KVG8gZ2V0IHJpZCBvZiBudWxsIHZhbHVlcyBhbmQgcmVjb3JkcyB3aXRoIGluc3VmZmljaWVudCBkYXRhDQpgYGB7cn0NCm5iYV9zdWIgPSBzdWJzZXQobmJhX3N1YiwgUGxheWVyIT0wKQ0KDQpgYGANCg0K</div>
 
 
 
