@@ -12,7 +12,16 @@ When you save the notebook, an HTML file containing the code and output will be 
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
 ```{r}
-read.csv("../R-project/NBASeasonData.csv")
+nba = read.csv("../R-project/NBASeasonData.csv")
 ```
 
-As the dataset spans almost 30 years, the 
+As the dataset spans almost 30 years, the methods of collecting data aren't consistent. Therefore, we are using data from 2013 onwards.
+
+```{r}
+nba_sub = subset(nba,Year>=2013)
+```
+To get rid of null values and records with insufficient data
+```{r}
+
+```
+
