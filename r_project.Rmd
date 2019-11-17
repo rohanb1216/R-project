@@ -21,11 +21,12 @@ nba_sub = subset(nba_sub,Player!=0)
 ```
 We want to see whether there's been an increase in 3pt attempts after a certain year, or player entering the league
 We do this by using thr 3Par stat.
-```{r}
-three_pt_stats = nba[!(is.na(nba$X3PAr) | nba$X3PAr==""), ]
-```
 
 ```{r}
+#discaring the NA and empty 3Par stats
+three_pt_stats = nba[!(is.na(nba$X3PAr) | nba$X3PAr==""), ]
+
+#separating the stats for all the years
 y1978 = subset(three_pt_stats,Year==1978)
 y1979 = subset(three_pt_stats,Year==1979)
 y1980 = subset(three_pt_stats,Year==1980)
@@ -66,15 +67,61 @@ y2014 = subset(three_pt_stats,Year==2014)
 y2015 = subset(three_pt_stats,Year==2015)
 y2016 = subset(three_pt_stats,Year==2016)
 
+#calculating the average 3Par stat for each year across all the players
 three_point_average=c(mean(y1978$X3PAr),mean(y1979$X3PAr),mean(y1980$X3PAr),mean(y1981$X3PAr),mean(y1982$X3PAr),mean(y1983$X3PAr),mean(y1984$X3PA),mean(y1985$X3PAr),mean(y1986$X3PAr),mean(y1987$X3PAr),mean(y1988$X3PAr),mean(y1989$X3PAr),mean(y1990$X3PAr),mean(y1991$X3PAr),mean(y1992$X3PAr),mean(y1993$X3PAr),mean(y1994$X3PAr),mean(y1995$X3PAr),mean(y1996$X3PAr),mean(y1997$X3PAr),mean(y1998$X3PAr),mean(y1999$X3PAr),mean(y2000$X3PAr),mean(y2001$X3PAr),mean(y2002$X3PAr),mean(y2003$X3PAr),mean(y2004$X3PAr),mean(y2005$X3PAr),mean(y2006$X3PAr),mean(y2007$X3PAr),mean(y2008$X3PAr),mean(y2009$X3PAr),mean(y2010$X3PAr),mean(y2011$X3PAr),mean(y2012$X3PAr),mean(y2013$X3PAr),mean(y2014$X3PAr),mean(y2015$X3PAr),mean(y2016$X3PAr))
-```
 
-Plotting the acerage percentage of attempted shots that were 3 pointers vs. the years
-
-```{r}
+#Plotting the acerage percentage of attempted shots that were 3 pointers vs. the years
 plot(c(1978:2016),three_point_average,main = "Variation in percentage of 3 pointers attempted",xlab = "Year", ylab = "Percentage of 3 pointers attempted", type = "h", col = "blue")
 
 ```
-```{r}
 
+Trying to see if there is a relation between shooting percentage and height
+
+```{r}
+#discaring the NA and empty shooting percentage and height stats
+shooting_stats = subset(nba_sub,(!is.na(nba_sub$TS.) & nba_sub$TS.!="" & !is.na(nba_sub$Height) & nba_sub$Height!=""))
+
+zero_to_ten=subset(shooting_stats,(TS.>=0.0 & TS.<0.1))
+ten_to_twenty=subset(shooting_stats,(TS.>=0.1 & TS.<0.2))
+twenty_to_thirty=subset(shooting_stats,(TS.>=0.2 & TS.<0.3))
+thirty_to_forty=subset(shooting_stats,(TS.>=0.3 & TS.<0.4))
+forty_to_fifty=subset(shooting_stats,(TS.>=0.4 & TS.<0.5))
+fifty_to_sixty=subset(shooting_stats,(TS.>=0.5 & TS.<0.6))
+sixty_to_seventy=subset(shooting_stats,(TS.>=0.6 & TS.<0.7))
+seventy_to_eighty=subset(shooting_stats,(TS.>=0.7 & TS.<0.8))
+eighty_to_ninety=subset(shooting_stats,(TS.>=0.8 & TS.<0.9))
+ninety_to_hundred=subset(shooting_stats,(TS.>=0.9 & TS.<1.0))
+
+View(zero_to_ten)
+View(ten_to_twenty)
+View(twenty_to_thirty)
+View(thirty_to_forty)
+View(forty_to_fifty)
+View(fifty_to_sixty)
+View(sixty_to_seventy)
+View(seventy_to_eighty)
+View(eighty_to_ninety)
+View(ninety_to_hundred)
+
+#ten_to_twenty=shooting_stats[shooting_stats$TS.>=0.1 & shooting_stats$TS.<0.2]
+
+#twenty_to_thirty=shooting_stats[shooting_stats$TS.>=0.2 & shooting_stats$TS.<0.3]
+
+#thirty_to_forty=shooting_stats[shooting_stats$TS.>=0.3 & shooting_stats$TS.<0.4]
+
+#forty_to_fifty=shooting_stats[shooting_stats$TS.>=0.4 & shooting_stats$TS.<0.5]
+
+#fifty_to_sixty=shooting_stats[shooting_stats$TS.>=0.5 & shooting_stats$TS.<0.6]
+
+#sixty_to_seventy=shooting_stats[shooting_stats$TS.>=0.6 & shooting_stats$TS.<0.7]
+
+#seventy_to_eighty=shooting_stats[shooting_stats$TS.>=0.7 & shooting_stats$TS.<0.8]
+
+#eighty_to_ninety=shooting_stats[shooting_stats$TS.>=0.8 & shooting_stats$TS.<0.9]
+
+#ninety_to_hundred=shooting_stats[shooting_stats$TS.>=0.9 & shooting_stats$TS.<1.0]
+
+mean_heights=c(mean(zero_to_ten$Height),mean(ten_to_twenty$Height),mean(twenty_to_thirty$Height),mean(thirty_to_forty$Height),mean(forty_to_fifty$Height),mean(fifty_to_sixty$Height),mean(sixty_to_seventy$Height),mean(seventy_to_eighty$Height),mean(eighty_to_ninety$Height),mean(ninety_to_hundred$Height))
+
+plot(c(0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9),mean_heights)
 ```
