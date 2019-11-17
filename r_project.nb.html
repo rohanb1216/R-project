@@ -1750,33 +1750,74 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
-<p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>. Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhID0gcmVhZC5jc3YoXCIuLi9SLXByb2plY3QvTkJBU2Vhc29uRGF0YS5jc3ZcIilcbmBgYCJ9 -->
-<pre class="r"><code>nba = read.csv(&quot;../R-project/NBASeasonData.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhID0gcmVhZC5jc3YoXCIuLi9SLXByb2plY3QvTkJBU2Vhc29uRGF0YS5jc3ZcIilcbm5iYSA9IHN1YnNldChuYmEsIFBsYXllciE9MClcbmBgYCJ9 -->
+<pre class="r"><code>nba = read.csv(&quot;../R-project/NBASeasonData.csv&quot;)
+nba = subset(nba, Player!=0)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>As the dataset spans almost 30 years, the methods of collecting data aren’t consistent. Therefore, we are using data from 2013 onwards.</p>
+<p>There have also been major rule changes that have lead to changes in stats for the seasons</p>
+<p>We also get rid of null values and records with insufficient data.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhX3N1YiA9IHN1YnNldChuYmEsWWVhcj49MjAxMylcbmBgYCJ9 -->
-<pre class="r"><code>nba_sub = subset(nba,Year&gt;=2013)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJhX3N1YiA9IHN1YnNldChuYmEsWWVhcj49MjAxMylcbm5iYV9zdWIgPSBzdWJzZXQobmJhX3N1YixQbGF5ZXIhPTApXG5gYGAifQ== -->
+<pre class="r"><code>nba_sub = subset(nba,Year&gt;=2013)
+nba_sub = subset(nba_sub,Player!=0)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>To get rid of null values and records with insufficient data</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueTE5NzggPSBzdWJzZXQobmJhLFllYXI9PTE5NzgpXG55MTk3OSA9IHN1YnNldChuYmEsWWVhcj09MTk3OSlcbnkxOTgwID0gc3Vic2V0KG5iYSxZZWFyPT0xOTgwKVxueTE5ODEgPSBzdWJzZXQobmJhLFllYXI9PTE5ODEpXG55MTk4MiA9IHN1YnNldChuYmEsWWVhcj09MTk4MilcbnkxOTgzID0gc3Vic2V0KG5iYSxZZWFyPT0xOTgzKVxueTE5ODQgPSBzdWJzZXQobmJhLFllYXI9PTE5ODQpXG55MTk4NSA9IHN1YnNldChuYmEsWWVhcj09MTk4NSlcbnkxOTg2ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTg2KVxueTE5ODcgPSBzdWJzZXQobmJhLFllYXI9PTE5ODcpXG55MTk4OCA9IHN1YnNldChuYmEsWWVhcj09MTk4OClcbnkxOTg5ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTg5KVxueTE5OTAgPSBzdWJzZXQobmJhLFllYXI9PTE5OTApXG55MTk5MSA9IHN1YnNldChuYmEsWWVhcj09MTk5MSlcbnkxOTkyID0gc3Vic2V0KG5iYSxZZWFyPT0xOTkyKVxueTE5OTMgPSBzdWJzZXQobmJhLFllYXI9PTE5OTMpXG55MTk5NCA9IHN1YnNldChuYmEsWWVhcj09MTk5NClcbnkxOTk1ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTk1KVxueTE5OTYgPSBzdWJzZXQobmJhLFllYXI9PTE5OTYpXG55MTk5NyA9IHN1YnNldChuYmEsWWVhcj09MTk5NylcbnkxOTk4ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTk4KVxueTE5OTkgPSBzdWJzZXQobmJhLFllYXI9PTE5OTkpXG55MjAwMCA9IHN1YnNldChuYmEsWWVhcj09MjAwMClcbnkyMDAxID0gc3Vic2V0KG5iYSxZZWFyPT0yMDAxKVxueTIwMDIgPSBzdWJzZXQobmJhLFllYXI9PTIwMDIpXG55MjAwMyA9IHN1YnNldChuYmEsWWVhcj09MjAwMylcbnkyMDA0ID0gc3Vic2V0KG5iYSxZZWFyPT0yMDA0KVxueTIwMDUgPSBzdWJzZXQobmJhLFllYXI9PTIwMDUpXG55MjAwNiA9IHN1YnNldChuYmEsWWVhcj09MjAwNilcbnkyMDA3ID0gc3Vic2V0KG5iYSxZZWFyPT0yMDA3KVxueTIwMDggPSBzdWJzZXQobmJhLFllYXI9PTIwMDgpXG55MjAwOSA9IHN1YnNldChuYmEsWWVhcj09MjAwOSlcbnkyMDEwID0gc3Vic2V0KG5iYSxZZWFyPT0yMDEwKVxueTIwMTEgPSBzdWJzZXQobmJhLFllYXI9PTIwMTEpXG55MjAxMiA9IHN1YnNldChuYmEsWWVhcj09MjAxMilcbnkyMDEzID0gc3Vic2V0KG5iYSxZZWFyPT0yMDEzKVxueTIwMTQgPSBzdWJzZXQobmJhLFllYXI9PTIwMTQpXG55MjAxNSA9IHN1YnNldChuYmEsWWVhcj09MjAxNSlcbnkyMDE2ID0gc3Vic2V0KG5iYSxZZWFyPT0yMDE2KVxueTIwMTYgPSBzdWJzZXQoeTIwMTYsUGxheWVyIT0wKVxuXG50aHJlZV9wb2ludF9hdmVyYWdlPWMobWVhbih5MTk3OCRYM1BBciksbWVhbih5MTk3OSRYM1BBciksbWVhbih5MTk4MCRYM1BBciksbWVhbih5MTk4MSRYM1BBciksbWVhbih5MTk4MiRYM1BBciksbWVhbih5MTk4MyRYM1BBciksbWVhbih5MTk4NCRYM1BBKSxtZWFuKHkxOTg1JFgzUEFyKSxtZWFuKHkxOTg2JFgzUEFyKSxtZWFuKHkxOTg3JFgzUEFyKSxtZWFuKHkxOTg4JFgzUEFyKSxtZWFuKHkxOTg5JFgzUEFyKSxtZWFuKHkxOTkwJFgzUEFyKSxtZWFuKHkxOTkxJFgzUEFyKSxtZWFuKHkxOTkyJFgzUEFyKSxtZWFuKHkxOTkzJFgzUEFyKSxtZWFuKHkxOTk0JFgzUEFyKSxtZWFuKHkxOTk1JFgzUEFyKSxtZWFuKHkxOTk2JFgzUEFyKSxtZWFuKHkxOTk3JFgzUEFyKSxtZWFuKHkxOTk4JFgzUEFyKSxtZWFuKHkxOTk5JFgzUEFyKSxtZWFuKHkyMDAwJFgzUEFyKSxtZWFuKHkyMDAxJFgzUEFyKSxtZWFuKHkyMDAyJFgzUEFyKSxtZWFuKHkyMDAzJFgzUEFyKSxtZWFuKHkyMDA0JFgzUEFyKSxtZWFuKHkyMDA1JFgzUEFyKSxtZWFuKHkyMDA2JFgzUEFyKSxtZWFuKHkyMDA3JFgzUEFyKSxtZWFuKHkyMDA4JFgzUEFyKSxtZWFuKHkyMDA5JFgzUEFyKSxtZWFuKHkyMDEwJFgzUEFyKSxtZWFuKHkyMDExJFgzUEFyKSxtZWFuKHkyMDEyJFgzUEFyKSxtZWFuKHkyMDEzJFgzUEFyKSxtZWFuKHkyMDE0JFgzUEFyKSxtZWFuKHkyMDE1JFgzUEFyKSxtZWFuKHkyMDE2JFgzUEFyKSlcbmBgYCJ9 -->
+<pre class="r"><code>y1978 = subset(nba,Year==1978)
+y1979 = subset(nba,Year==1979)
+y1980 = subset(nba,Year==1980)
+y1981 = subset(nba,Year==1981)
+y1982 = subset(nba,Year==1982)
+y1983 = subset(nba,Year==1983)
+y1984 = subset(nba,Year==1984)
+y1985 = subset(nba,Year==1985)
+y1986 = subset(nba,Year==1986)
+y1987 = subset(nba,Year==1987)
+y1988 = subset(nba,Year==1988)
+y1989 = subset(nba,Year==1989)
+y1990 = subset(nba,Year==1990)
+y1991 = subset(nba,Year==1991)
+y1992 = subset(nba,Year==1992)
+y1993 = subset(nba,Year==1993)
+y1994 = subset(nba,Year==1994)
+y1995 = subset(nba,Year==1995)
+y1996 = subset(nba,Year==1996)
+y1997 = subset(nba,Year==1997)
+y1998 = subset(nba,Year==1998)
+y1999 = subset(nba,Year==1999)
+y2000 = subset(nba,Year==2000)
+y2001 = subset(nba,Year==2001)
+y2002 = subset(nba,Year==2002)
+y2003 = subset(nba,Year==2003)
+y2004 = subset(nba,Year==2004)
+y2005 = subset(nba,Year==2005)
+y2006 = subset(nba,Year==2006)
+y2007 = subset(nba,Year==2007)
+y2008 = subset(nba,Year==2008)
+y2009 = subset(nba,Year==2009)
+y2010 = subset(nba,Year==2010)
+y2011 = subset(nba,Year==2011)
+y2012 = subset(nba,Year==2012)
+y2013 = subset(nba,Year==2013)
+y2014 = subset(nba,Year==2014)
+y2015 = subset(nba,Year==2015)
+y2016 = subset(nba,Year==2016)
+y2016 = subset(y2016,Player!=0)
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4NCg0KV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDdHJsK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuDQoNClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4NCmBgYHtyfQ0KbmJhID0gcmVhZC5jc3YoIi4uL1ItcHJvamVjdC9OQkFTZWFzb25EYXRhLmNzdiIpDQpgYGANCg0KQXMgdGhlIGRhdGFzZXQgc3BhbnMgYWxtb3N0IDMwIHllYXJzLCB0aGUgbWV0aG9kcyBvZiBjb2xsZWN0aW5nIGRhdGEgYXJlbid0IGNvbnNpc3RlbnQuIFRoZXJlZm9yZSwgd2UgYXJlIHVzaW5nIGRhdGEgZnJvbSAyMDEzIG9ud2FyZHMuDQoNCmBgYHtyfQ0KbmJhX3N1YiA9IHN1YnNldChuYmEsWWVhcj49MjAxMykNCmBgYA0KVG8gZ2V0IHJpZCBvZiBudWxsIHZhbHVlcyBhbmQgcmVjb3JkcyB3aXRoIGluc3VmZmljaWVudCBkYXRhDQpgYGB7cn0NCg0KYGBgDQoNCg==</div>
+three_point_average=c(mean(y1978$X3PAr),mean(y1979$X3PAr),mean(y1980$X3PAr),mean(y1981$X3PAr),mean(y1982$X3PAr),mean(y1983$X3PAr),mean(y1984$X3PA),mean(y1985$X3PAr),mean(y1986$X3PAr),mean(y1987$X3PAr),mean(y1988$X3PAr),mean(y1989$X3PAr),mean(y1990$X3PAr),mean(y1991$X3PAr),mean(y1992$X3PAr),mean(y1993$X3PAr),mean(y1994$X3PAr),mean(y1995$X3PAr),mean(y1996$X3PAr),mean(y1997$X3PAr),mean(y1998$X3PAr),mean(y1999$X3PAr),mean(y2000$X3PAr),mean(y2001$X3PAr),mean(y2002$X3PAr),mean(y2003$X3PAr),mean(y2004$X3PAr),mean(y2005$X3PAr),mean(y2006$X3PAr),mean(y2007$X3PAr),mean(y2008$X3PAr),mean(y2009$X3PAr),mean(y2010$X3PAr),mean(y2011$X3PAr),mean(y2012$X3PAr),mean(y2013$X3PAr),mean(y2014$X3PAr),mean(y2015$X3PAr),mean(y2016$X3PAr))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCm5iYSA9IHJlYWQuY3N2KCIuLi9SLXByb2plY3QvTkJBU2Vhc29uRGF0YS5jc3YiKQ0KbmJhID0gc3Vic2V0KG5iYSwgUGxheWVyIT0wKQ0KYGBgDQoNCkFzIHRoZSBkYXRhc2V0IHNwYW5zIGFsbW9zdCAzMCB5ZWFycywgdGhlIG1ldGhvZHMgb2YgY29sbGVjdGluZyBkYXRhIGFyZW4ndCBjb25zaXN0ZW50LiBUaGVyZWZvcmUsIHdlIGFyZSB1c2luZyBkYXRhIGZyb20gMjAxMyBvbndhcmRzLg0KDQoNClRoZXJlIGhhdmUgYWxzbyBiZWVuIG1ham9yIHJ1bGUgY2hhbmdlcyB0aGF0IGhhdmUgbGVhZCB0byBjaGFuZ2VzIGluIHN0YXRzIGZvciB0aGUgc2Vhc29ucw0KDQoNCldlIGFsc28gZ2V0IHJpZCBvZiBudWxsIHZhbHVlcyBhbmQgcmVjb3JkcyB3aXRoIGluc3VmZmljaWVudCBkYXRhLg0KYGBge3J9DQpuYmFfc3ViID0gc3Vic2V0KG5iYSxZZWFyPj0yMDEzKQ0KbmJhX3N1YiA9IHN1YnNldChuYmFfc3ViLFBsYXllciE9MCkNCmBgYA0KDQpgYGB7cn0NCnkxOTc4ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTc4KQ0KeTE5NzkgPSBzdWJzZXQobmJhLFllYXI9PTE5NzkpDQp5MTk4MCA9IHN1YnNldChuYmEsWWVhcj09MTk4MCkNCnkxOTgxID0gc3Vic2V0KG5iYSxZZWFyPT0xOTgxKQ0KeTE5ODIgPSBzdWJzZXQobmJhLFllYXI9PTE5ODIpDQp5MTk4MyA9IHN1YnNldChuYmEsWWVhcj09MTk4MykNCnkxOTg0ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTg0KQ0KeTE5ODUgPSBzdWJzZXQobmJhLFllYXI9PTE5ODUpDQp5MTk4NiA9IHN1YnNldChuYmEsWWVhcj09MTk4NikNCnkxOTg3ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTg3KQ0KeTE5ODggPSBzdWJzZXQobmJhLFllYXI9PTE5ODgpDQp5MTk4OSA9IHN1YnNldChuYmEsWWVhcj09MTk4OSkNCnkxOTkwID0gc3Vic2V0KG5iYSxZZWFyPT0xOTkwKQ0KeTE5OTEgPSBzdWJzZXQobmJhLFllYXI9PTE5OTEpDQp5MTk5MiA9IHN1YnNldChuYmEsWWVhcj09MTk5MikNCnkxOTkzID0gc3Vic2V0KG5iYSxZZWFyPT0xOTkzKQ0KeTE5OTQgPSBzdWJzZXQobmJhLFllYXI9PTE5OTQpDQp5MTk5NSA9IHN1YnNldChuYmEsWWVhcj09MTk5NSkNCnkxOTk2ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTk2KQ0KeTE5OTcgPSBzdWJzZXQobmJhLFllYXI9PTE5OTcpDQp5MTk5OCA9IHN1YnNldChuYmEsWWVhcj09MTk5OCkNCnkxOTk5ID0gc3Vic2V0KG5iYSxZZWFyPT0xOTk5KQ0KeTIwMDAgPSBzdWJzZXQobmJhLFllYXI9PTIwMDApDQp5MjAwMSA9IHN1YnNldChuYmEsWWVhcj09MjAwMSkNCnkyMDAyID0gc3Vic2V0KG5iYSxZZWFyPT0yMDAyKQ0KeTIwMDMgPSBzdWJzZXQobmJhLFllYXI9PTIwMDMpDQp5MjAwNCA9IHN1YnNldChuYmEsWWVhcj09MjAwNCkNCnkyMDA1ID0gc3Vic2V0KG5iYSxZZWFyPT0yMDA1KQ0KeTIwMDYgPSBzdWJzZXQobmJhLFllYXI9PTIwMDYpDQp5MjAwNyA9IHN1YnNldChuYmEsWWVhcj09MjAwNykNCnkyMDA4ID0gc3Vic2V0KG5iYSxZZWFyPT0yMDA4KQ0KeTIwMDkgPSBzdWJzZXQobmJhLFllYXI9PTIwMDkpDQp5MjAxMCA9IHN1YnNldChuYmEsWWVhcj09MjAxMCkNCnkyMDExID0gc3Vic2V0KG5iYSxZZWFyPT0yMDExKQ0KeTIwMTIgPSBzdWJzZXQobmJhLFllYXI9PTIwMTIpDQp5MjAxMyA9IHN1YnNldChuYmEsWWVhcj09MjAxMykNCnkyMDE0ID0gc3Vic2V0KG5iYSxZZWFyPT0yMDE0KQ0KeTIwMTUgPSBzdWJzZXQobmJhLFllYXI9PTIwMTUpDQp5MjAxNiA9IHN1YnNldChuYmEsWWVhcj09MjAxNikNCnkyMDE2ID0gc3Vic2V0KHkyMDE2LFBsYXllciE9MCkNCg0KdGhyZWVfcG9pbnRfYXZlcmFnZT1jKG1lYW4oeTE5NzgkWDNQQXIpLG1lYW4oeTE5NzkkWDNQQXIpLG1lYW4oeTE5ODAkWDNQQXIpLG1lYW4oeTE5ODEkWDNQQXIpLG1lYW4oeTE5ODIkWDNQQXIpLG1lYW4oeTE5ODMkWDNQQXIpLG1lYW4oeTE5ODQkWDNQQSksbWVhbih5MTk4NSRYM1BBciksbWVhbih5MTk4NiRYM1BBciksbWVhbih5MTk4NyRYM1BBciksbWVhbih5MTk4OCRYM1BBciksbWVhbih5MTk4OSRYM1BBciksbWVhbih5MTk5MCRYM1BBciksbWVhbih5MTk5MSRYM1BBciksbWVhbih5MTk5MiRYM1BBciksbWVhbih5MTk5MyRYM1BBciksbWVhbih5MTk5NCRYM1BBciksbWVhbih5MTk5NSRYM1BBciksbWVhbih5MTk5NiRYM1BBciksbWVhbih5MTk5NyRYM1BBciksbWVhbih5MTk5OCRYM1BBciksbWVhbih5MTk5OSRYM1BBciksbWVhbih5MjAwMCRYM1BBciksbWVhbih5MjAwMSRYM1BBciksbWVhbih5MjAwMiRYM1BBciksbWVhbih5MjAwMyRYM1BBciksbWVhbih5MjAwNCRYM1BBciksbWVhbih5MjAwNSRYM1BBciksbWVhbih5MjAwNiRYM1BBciksbWVhbih5MjAwNyRYM1BBciksbWVhbih5MjAwOCRYM1BBciksbWVhbih5MjAwOSRYM1BBciksbWVhbih5MjAxMCRYM1BBciksbWVhbih5MjAxMSRYM1BBciksbWVhbih5MjAxMiRYM1BBciksbWVhbih5MjAxMyRYM1BBciksbWVhbih5MjAxNCRYM1BBciksbWVhbih5MjAxNSRYM1BBciksbWVhbih5MjAxNiRYM1BBcikpDQpgYGA=</div>
 
 
 
